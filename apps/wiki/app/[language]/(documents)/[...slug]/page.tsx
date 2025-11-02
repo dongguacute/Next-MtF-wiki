@@ -6,6 +6,7 @@ import {
 } from '@/components/ControlledElement';
 import { LanguageAlternate } from '@/components/LanguageAlternate';
 import { LocalImage } from '@/components/LocalImage';
+import PageHistory from '@/components/PageHistory';
 import { Link } from '@/components/progress';
 import { ShortCodeComp } from '@/components/shortcode';
 import { cache } from '@/lib/cache';
@@ -201,7 +202,7 @@ export async function generateMetadata({
   const navItem = getDocItemByNavigationMap(navigationItemMap, slugPath);
 
   if (!navItem) {
-    return null;
+    return {};
   }
 
   const ogBaseUrl = process.env.NEXT_PUBLIC_OG_BASE_URL || 'https://mtf.wiki/';
@@ -484,6 +485,12 @@ export default async function DocPage({
               )}
             </div>
           )}
+
+          {/* 页面历史 */}
+          <PageHistory
+            filePath={`${language}/${realCurrentSlug}`}
+            language={language}
+          />
         </article>
       </div>
 
