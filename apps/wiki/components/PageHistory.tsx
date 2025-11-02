@@ -19,6 +19,11 @@ interface CommitInfo {
   } | null;
 }
 
+interface PRInfo {
+  number: number;
+  html_url: string;
+}
+
 interface PageHistoryProps {
   filePath: string;
   language: string;
@@ -52,7 +57,39 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
       }
 
       const data: CommitInfo[] = await response.json();
-      setCommits(data);
+
+      // For each commit, check if it has an associated PR
+      const commitsWithPRs = await Promise.all(
+        data.map(async (commit) => {
+          if (!commit.pull_request) {
+            // Try to find PR by checking commit message for PR reference
+            const prMatch = commit.commit.message.match(/#(\d+)/);
+            if (prMatch) {
+              const prNumber = Number.parseInt(prMatch[1]);
+              try {
+                const prResponse = await fetch(
+                  `https://api.github.com/repos/${repoName}/pulls/${prNumber}`,
+                );
+                if (prResponse.ok) {
+                  const prData = await prResponse.json();
+                  return {
+                    ...commit,
+                    pull_request: {
+                      number: prData.number,
+                      html_url: prData.html_url,
+                    },
+                  };
+                }
+              } catch (err) {
+                console.warn(`Failed to fetch PR ${prNumber}:`, err);
+              }
+            }
+          }
+          return commit;
+        }),
+      );
+
+      setCommits(commitsWithPRs);
     } catch (err) {
       console.error('Error fetching page history:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
@@ -129,7 +166,17 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-base-content/90 font-medium mb-2">
-                    {getCommitTitle(commit.commit.message)}
+                    <span>{getCommitTitle(commit.commit.message)}</span>
+                    {commit.pull_request && (
+                      <a
+                        href={commit.pull_request.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-2 text-xs bg-secondary/20 text-secondary hover:bg-secondary/30 hover:text-secondary-focus px-2 py-1 rounded transition-colors"
+                      >
+                        #{commit.pull_request.number}
+                      </a>
+                    )}
                   </div>
                   <div className="flex items-center gap-3 text-xs text-base-content/60">
                     <a
@@ -140,19 +187,6 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
                     >
                       {commit.sha.substring(0, 7)}
                     </a>
-                    {commit.pull_request && (
-                      <>
-                        <span>•</span>
-                        <a
-                          href={commit.pull_request.html_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-secondary hover:text-secondary-focus hover:underline transition-colors"
-                        >
-                          #{commit.pull_request.number}
-                        </a>
-                      </>
-                    )}
                     <span>•</span>
                     <span className="text-base-content/50">
                       {formatDate(commit.commit.author.date)}
