@@ -55,7 +55,7 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
         throw new Error('GitHub repository not configured');
       }
 
-      const apiUrl = `https://api.github.com/repos/${repoName}/commits?path=content/${filePath}&per_page=10`;
+      const apiUrl = `https://api.github.com/repos/${repoName}/commits?path=content/${filePath}&per_page=10&follow=1`;
       console.log('Fetching commits from:', apiUrl);
 
       const response = await fetch(apiUrl);
