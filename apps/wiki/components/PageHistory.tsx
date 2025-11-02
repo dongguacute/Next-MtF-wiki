@@ -1,6 +1,12 @@
 'use client';
 
-import { ChevronDown, ChevronUp, History } from 'lucide-react';
+import {
+  ChevronDown,
+  ChevronUp,
+  GitCommit,
+  GitMerge,
+  History,
+} from 'lucide-react';
 import { useState } from 'react';
 
 interface CommitInfo {
@@ -163,7 +169,14 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
               key={commit.sha}
               className="p-4 bg-base-200/30 rounded-lg border border-base-300/20 hover:bg-base-200/50 transition-colors"
             >
-              <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  {commit.pull_request ? (
+                    <GitMerge className="w-4 h-4 text-secondary" />
+                  ) : (
+                    <GitCommit className="w-4 h-4 text-base-content/60" />
+                  )}
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-base-content/90 font-medium mb-2">
                     <span>{getCommitTitle(commit.commit.message)}</span>
