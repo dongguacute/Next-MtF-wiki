@@ -145,5 +145,40 @@
     "ja": "現在のテーマ",
     "es": "Tema actual",
     "en": "Current Theme"
+  },
+  "pageHistory": {
+    "zh-cn": "页面历史",
+    "zh-hant": "頁面歷史",
+    "ja": "ページ履歴",
+    "es": "Historial de página",
+    "en": "Page History"
+  },
+  "lastEditedOn": {
+    "zh-cn": "最后编辑于",
+    "zh-hant": "最後編輯於",
+    "ja": "最終編集日",
+    "es": "Última edición el",
+    "en": "Last edited on"
+  },
+  "loading": {
+    "zh-cn": "加载中...",
+    "zh-hant": "加載中...",
+    "ja": "読み込み中...",
+    "es": "Cargando...",
+    "en": "Loading..."
+  },
+  "failedToLoadHistory": {
+    "zh-cn": "加载历史记录失败:",
+    "zh-hant": "加載歷史記錄失敗:",
+    "ja": "履歴の読み込みに失敗しました:",
+    "es": "Error al cargar el historial:",
+    "en": "Failed to load history:"
+  },
+  "noHistoryRecords": {
+    "zh-cn": "暂无历史记录",
+    "zh-hant": "暫無歷史記錄",
+    "ja": "履歴がありません",
+    "es": "Sin registros de historial",
+    "en": "No history records"
   }
 }

@@ -8,6 +8,7 @@ import {
   History,
 } from 'lucide-react';
 import { useState } from 'react';
+import { t } from '../lib/i18n/client';
 
 interface CommitInfo {
   sha: string;
@@ -136,10 +137,11 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
       >
         <div className="flex items-center gap-2">
           <History className="w-4 h-4" />
-          <span>页面历史</span>
+          <span>{t('pageHistory', language)}</span>
           {latestCommit && (
             <span className="text-xs text-base-content/40">
-              最后编辑于 {formatDate(latestCommit.commit.author.date)}
+              {t('lastEditedOn', language)}{' '}
+              {formatDate(latestCommit.commit.author.date)}
             </span>
           )}
         </div>
@@ -153,15 +155,21 @@ export default function PageHistory({ filePath, language }: PageHistoryProps) {
       {expanded && (
         <div className="mt-3 space-y-2">
           {loading && (
-            <div className="text-sm text-base-content/50">加载中...</div>
+            <div className="text-sm text-base-content/50">
+              {t('loading', language)}
+            </div>
           )}
 
           {error && (
-            <div className="text-sm text-error">加载历史记录失败: {error}</div>
+            <div className="text-sm text-error">
+              {t('failedToLoadHistory', language)} {error}
+            </div>
           )}
 
           {!loading && !error && commits.length === 0 && (
-            <div className="text-sm text-base-content/50">暂无历史记录</div>
+            <div className="text-sm text-base-content/50">
+              {t('noHistoryRecords', language)}
+            </div>
           )}
 
           {commits.map((commit) => (
