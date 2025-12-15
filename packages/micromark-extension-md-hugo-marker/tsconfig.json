@@ -8,6 +8,9 @@
     "exactOptionalPropertyTypes": true,
     "lib": ["es2022"],
     "module": "node16",
+    "outDir": "lib",
+    "rootDir": ".",
+    "skipLibCheck": true,
     "strict": true,
     "target": "es2022"
   },
