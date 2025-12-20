@@ -1,0 +1,86 @@
+[
+  {
+    "pageAddress": "zh-cn/docs/intro",
+    "type": "commit",
+    "time": "2024-05-20T10:00:00Z",
+    "commitId": "a1b2c3d"
+  },
+  {
+    "pageAddress": "zh-cn/docs/intro",
+    "type": "pr",
+    "time": "2024-05-21T14:30:00Z",
+    "commitId": "e5f6g7h"
+  },
+  {
+    "pageAddress": "zh-cn/docs/hrt",
+    "type": "commit",
+    "time": "2024-05-22T09:15:00Z",
+    "commitId": "9i8j7k6"
+  },
+  {
+    "pageAddress": "zh-cn/docs/hrt",
+    "type": "pr",
+    "time": "2024-05-23T11:20:00Z",
+    "commitId": "m2n3o4p"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2025-09-18T13:36:12Z",
+    "commitId": "54fabfb759eecce6b8348af1dc822e64f05bc5ca"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2025-05-01T17:22:32Z",
+    "commitId": "0b75f40c529a31840b4ed239d19cdfeffb96f326"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2025-02-26T20:27:50Z",
+    "commitId": "434de250e8fc45a73ee162486aec4c70300bea75"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2023-07-24T17:56:14Z",
+    "commitId": "e0897990c5de775d2fc268ebffdd11d44f68ec06"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2023-01-26T11:09:16Z",
+    "commitId": "900c22de77e6028231d796ef49551cfa4583e33c"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "commit",
+    "time": "2022-11-12T11:56:14Z",
+    "commitId": "4fc50db2d81fe0669b539b90163bbf3fe460ba06"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2022-08-14T01:08:43Z",
+    "commitId": "df79e9c7554b9e13edc5bdd1a424c7911e18f740"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "commit",
+    "time": "2022-08-10T14:20:35Z",
+    "commitId": "d7bb7f0fd9b38fd566278d3f020dd50c26c4964b"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2022-08-10T02:42:34Z",
+    "commitId": "c15505a6d1813cd2033b4b3b4735f2462ce319c2"
+  },
+  {
+    "pageAddress": "zh-cn/docs/psyco/friendly",
+    "type": "pr",
+    "time": "2022-05-23T09:49:14Z",
+    "commitId": "37154031645c10f038b157591e4a2ac7e7bf2fc7"
+  }
+]

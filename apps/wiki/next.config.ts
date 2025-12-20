@@ -1,5 +1,6 @@
 import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -8,6 +9,9 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_GITHUB_REPO: 'project-trans/MtF-wiki',
     NEXT_PUBLIC_EDIT_LINK_GITHUB_URL:
       'https://github.com/project-trans/MtF-wiki/tree/master/',
+  },
+  turbopack: {
+    root: path.resolve(__dirname, '../../'),
   },
 };
 
